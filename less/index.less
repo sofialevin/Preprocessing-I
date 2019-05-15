@@ -53,6 +53,11 @@ table {
 @hightlight-blue: #1E90FF;
 @thin-border: solid 2px #efefef;
 
+.bordered() {
+	border-left: @thick-border;
+	border-right: @thick-border;
+  }
+
 /* Set every element's box-sizing to border-box */
 * {
     box-sizing: border-box;
@@ -106,27 +111,44 @@ body {
 	a {
 		color: @dark-grey;
 		text-decoration: none;
-		&:hover {
-			color: @hightlight-blue;
-			&:before {
-				content: "<";
-			}
-			&:after {
-				content: ">";
-			}
-		} 
+		background: transparent;
+    	transition: 0.3s;
+		}
+		a:before {
+			content: "[";
+			opacity: 0;
+			margin-right: 10px;
+			transform: translateX(30px);
+		}
+	a:after {
+			opacity: 0;
+			margin-left: 10px;
+			content: "]";
+			transform: translateX(-30px);
+		}
 
-	}
+	a:hover {
+		color: @hightlight-blue;
+		}
+	a:before, a:after {
+		display: inline-block;
+			opacity: 0;
+			transition: transform .3s,opacity .2s;
+		}
+		a:focus:after, a:focus:before, a:hover:after, a:hover:before {
+			opacity: 1;
+			transform: translateX(0);
+			}
+	} 
+
 	ul li {
 		font-size: 1.7em;
 		padding: .5em;
 	}
-}
 
 .main {
 	width: calc(100vw - 260px - 100px);
-	border-left: @thick-border;
-	border-right: @thick-border;
+	.bordered;
 	padding: 30px;
 	overflow-y: scroll;
   	scroll-behavior: smooth;

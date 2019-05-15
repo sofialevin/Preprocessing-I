@@ -176,17 +176,38 @@ body {
 .left-sidebar a {
   color: #555555;
   text-decoration: none;
+  background: transparent;
+  transition: 0.3s;
+}
+.left-sidebar a:before {
+  content: "[";
+  opacity: 0;
+  margin-right: 10px;
+  transform: translateX(30px);
+}
+.left-sidebar a:after {
+  opacity: 0;
+  margin-left: 10px;
+  content: "]";
+  transform: translateX(-30px);
 }
 .left-sidebar a:hover {
   color: #1E90FF;
 }
+.left-sidebar a:before,
+.left-sidebar a:after {
+  display: inline-block;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.2s;
+}
+.left-sidebar a:focus:after,
+.left-sidebar a:focus:before,
+.left-sidebar a:hover:after,
 .left-sidebar a:hover:before {
-  content: "<";
+  opacity: 1;
+  transform: translateX(0);
 }
-.left-sidebar a:hover:after {
-  content: ">";
-}
-.left-sidebar ul li {
+ul li {
   font-size: 1.7em;
   padding: 0.5em;
 }
