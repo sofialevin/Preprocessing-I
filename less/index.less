@@ -49,6 +49,8 @@ table {
 }
 
 @border: 1px solid #dedede;
+@dark-grey: #555555;
+@hightlight-blue: #1E90FF;
 
 /* Set every element's box-sizing to border-box */
 * {
@@ -75,7 +77,6 @@ body {
 	justify-content: center;
 	border-right: @border;
 	margin: 20px 40px;
-	position: sticky;
 	.inner {
 		a {
 			display: flex;
@@ -83,8 +84,9 @@ body {
 			align-items: flex-start;
 		}
 		h1 {
-			font-size: 1.7em;
+			font-size: 2.5em;
 			text-align: center;
+			color: @dark-grey;
 		}
 	}
 	
@@ -99,10 +101,27 @@ nav {
 	width: 60px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	order: 2;
 	border-left: @border;
+	font-size: 24px;
+	margin: 20px 0 20px;
+	a {
+		padding: 12px;
+		i {
+			color: @dark-grey;
+			&:hover {
+				color: @hightlight-blue;
+			}
+		}
+	}
+	
 }
 
 .main {
 	width: 715px;
+}
+
+h2 {
+	font-size: 2em;
 }
