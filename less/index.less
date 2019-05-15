@@ -4,6 +4,20 @@
    License: none (public domain)
 */
 
+// variables
+
+@thick-border: 1px solid #dedede;
+@dark-grey: #555555;
+@hightlight-blue: #1E90FF;
+@thin-border: solid 2px #efefef;
+
+// mixins
+
+.bordered() {
+	border-left: @thick-border;
+	border-right: @thick-border;
+  }
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,16 +62,6 @@ table {
 	border-spacing: 0;
 }
 
-@thick-border: 1px solid #dedede;
-@dark-grey: #555555;
-@hightlight-blue: #1E90FF;
-@thin-border: solid 2px #efefef;
-
-.bordered() {
-	border-left: @thick-border;
-	border-right: @thick-border;
-  }
-
 /* Set every element's box-sizing to border-box */
 * {
     box-sizing: border-box;
@@ -80,7 +84,7 @@ body {
 	width: 100%;
 	max-height: 100%;
 	display: flex;
-	padding: 20px;
+	padding: 20px 0;
 }
 
 .left-sidebar {
@@ -90,6 +94,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	margin: 20px 0 20px;
+	padding: 20px;
 	.sofia {
 		margin-bottom: 40px;
 		a {
@@ -108,37 +113,34 @@ body {
 			color: @dark-grey;
 		}	
 	}
-	a {
+	a:not(.img-link) {
 		color: @dark-grey;
 		text-decoration: none;
 		background: transparent;
-    	transition: 0.3s;
-		}
-		a:before {
+		transition: 0.3s;
+		&:before {
 			content: "[";
 			opacity: 0;
 			margin-right: 10px;
 			transform: translateX(30px);
 		}
-	a:after {
+		&:after {
 			opacity: 0;
 			margin-left: 10px;
 			content: "]";
 			transform: translateX(-30px);
 		}
-
-	a:hover {
-		color: @hightlight-blue;
-		}
-	a:before, a:after {
-		display: inline-block;
+		&:before, &:after {
+			display: inline-block;
+			color: @hightlight-blue;
 			opacity: 0;
 			transition: transform .3s,opacity .2s;
 		}
-		a:focus:after, a:focus:before, a:hover:after, a:hover:before {
+		&:hover:after, &:hover:before {
 			opacity: 1;
 			transform: translateX(0);
 			}
+		}	
 	} 
 
 	ul li {
@@ -147,7 +149,7 @@ body {
 	}
 
 .main {
-	width: calc(100vw - 260px - 100px);
+	width: calc(100vw - 220px - 100px);
 	.bordered;
 	padding: 30px;
 	overflow-y: scroll;
@@ -227,7 +229,7 @@ body {
 }
   
 
-@media (max-width: 1024px) {
+@media (max-width: 500px) {
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -283,31 +285,6 @@ body {
 	}
 }
 
+@media (max-width: 1024px) {
 
-.tooltip {
-	position: relative;
-	display: inline-block;
-  }
-  
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-	visibility: hidden;
-	width: 120px;
-	background-color: transparent;
-	color: @dark-grey;
-	text-align: center;
-	padding: 5px 0;
-	border-radius: 6px;
-	font-family: 'Open Sans';
-	font-size: 1em;
-	/* Position the tooltip text - see examples below! */
-	position: absolute;
-	z-index: 1;
-	right:105%
-  }
-  
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-	visibility: visible;
-  }
-
+}
