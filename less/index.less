@@ -48,9 +48,10 @@ table {
 	border-spacing: 0;
 }
 
-@border: 1px solid #dedede;
+@thick-border: 1px solid #dedede;
 @dark-grey: #555555;
 @hightlight-blue: #1E90FF;
+@thin-border: solid 2px #efefef;
 
 /* Set every element's box-sizing to border-box */
 * {
@@ -70,26 +71,37 @@ body {
 	display: flex;
 }
 
-.left-header {
+.container {
+	width: 100%;
+	display: flex;
+	padding: 20px;
+}
+
+.left-sidebar {
 	width: 240px;
 	order: 0;
 	display: flex;
-	justify-content: center;
-	border-right: @border;
-	margin: 20px 40px;
-	.inner {
+	align-items: center;
+	flex-direction: column;
+	margin: 20px 0 20px;
+	.sofia {
+		margin-bottom: 40px;
 		a {
 			display: flex;
 			justify-content: center;
 			align-items: flex-start;
+			margin-bottom: 20px;
 		}
 		h1 {
-			font-size: 2.5em;
+			font-size: 2.2em;
 			text-align: center;
 			color: @dark-grey;
-		}
+		}	
 	}
-	
+	ul li {
+		font-size: 1.7em;
+		padding: .5em;
+	}
 }
 
 img {
@@ -98,14 +110,11 @@ img {
 }
 
 nav {
-	width: 60px;
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	order: 2;
-	border-left: @border;
 	font-size: 24px;
-	margin: 20px 0 20px;
 	a {
 		padding: 12px;
 		i {
@@ -118,10 +127,43 @@ nav {
 	
 }
 
-.main {
-	width: 715px;
+.container {
+	height: 100%;
+	width: 100%;
 }
 
-h2 {
-	font-size: 2em;
+.main {
+	width: calc(100vw - 260px - 100px);
+	border-left: @thick-border;
+	border-right: @thick-border;
+	padding: 30px;
+	overflow-y: scroll;
+  	scroll-behavior: smooth;
+	h2 {
+		font-size: 2em;
+		padding-top: 30px;
+		margin: 0 0 1em 0;
+	}
+	h3 {
+		font-size: 1.8em;
+		margin: 20px 0 20px;
+	}
+	p {
+		font-size: 1.3em;
+	}
+	section:not(:first-child) {
+		border-top: @thin-border;
+	}
 }
+
+.right-sidebar {
+	margin: 20px;
+	position: fixed;
+	right: 0;
+	width: 60px;
+	order: 2;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
