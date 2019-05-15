@@ -48,6 +48,8 @@ table {
 	border-spacing: 0;
 }
 
+@border: 1px solid #dedede;
+
 /* Set every element's box-sizing to border-box */
 * {
     box-sizing: border-box;
@@ -58,6 +60,49 @@ html, body {
 }
 
 html {
-	font-size: font-size: 62.5%;
+	font-size: 62.5%;
+	font-family: 'Open Sans';
 }
 
+body {
+	display: flex;
+}
+
+.left-header {
+	width: 240px;
+	order: 0;
+	display: flex;
+	justify-content: center;
+	border-right: @border;
+	margin: 20px 40px;
+	position: sticky;
+	.inner {
+		a {
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+		}
+		h1 {
+			font-size: 1.7em;
+			text-align: center;
+		}
+	}
+	
+}
+
+img {
+	border-radius: 100%;
+	width: 100px;
+}
+
+nav {
+	width: 60px;
+	display: flex;
+	flex-direction: column;
+	order: 2;
+	border-left: @border;
+}
+
+.main {
+	width: 715px;
+}

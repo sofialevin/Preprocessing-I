@@ -134,3 +134,42 @@ html,
 body {
   height: 100%;
 }
+html {
+  font-size: 62.5%;
+  font-family: 'Open Sans';
+}
+body {
+  display: flex;
+}
+.left-header {
+  width: 240px;
+  order: 0;
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid #dedede;
+  margin: 20px 40px;
+  position: sticky;
+}
+.left-header .inner a {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.left-header .inner h1 {
+  font-size: 1.7em;
+  text-align: center;
+}
+img {
+  border-radius: 100%;
+  width: 100px;
+}
+nav {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  border-left: 1px solid #dedede;
+}
+.main {
+  width: 715px;
+}
