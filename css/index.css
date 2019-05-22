@@ -1,1 +1,401 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Open Sans';
+}
+body {
+  display: flex;
+}
+.container {
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  padding: 20px 0;
+}
+@media (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 0 20px;
+    padding-bottom: 0;
+  }
+}
+.left-sidebar {
+  width: 240px;
+  order: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0 20px;
+  padding: 20px;
+}
+.left-sidebar .sofia {
+  margin-bottom: 40px;
+}
+.left-sidebar .sofia a {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.left-sidebar .sofia a img {
+  border-radius: 100%;
+  width: 100px;
+}
+.left-sidebar .sofia h1 {
+  font-size: 2.2em;
+  text-align: center;
+  color: #555555;
+}
+.left-sidebar a:not(.img-link) {
+  color: #555555;
+  text-decoration: none;
+  background: transparent;
+  transition: 0.3s;
+}
+@media (max-width: 500px) {
+  .left-sidebar a:not(.img-link):hover {
+    color: #1E90FF;
+  }
+}
+.left-sidebar a:not(.img-link):before {
+  content: "[";
+  opacity: 0;
+  margin-right: 10px;
+  transform: translateX(30px);
+}
+.left-sidebar a:not(.img-link):after {
+  opacity: 0;
+  margin-left: 10px;
+  content: "]";
+  transform: translateX(-30px);
+}
+.left-sidebar a:not(.img-link):before,
+.left-sidebar a:not(.img-link):after {
+  display: inline-block;
+  color: #1E90FF;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.2s;
+}
+@media (max-width: 500px) {
+  .left-sidebar a:not(.img-link):before,
+  .left-sidebar a:not(.img-link):after {
+    content: none;
+    transform: none;
+  }
+}
+.left-sidebar a:not(.img-link):hover:after,
+.left-sidebar a:not(.img-link):hover:before {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (max-width: 500px) {
+  .left-sidebar a:not(.img-link):hover:after,
+  .left-sidebar a:not(.img-link):hover:before {
+    transform: none;
+  }
+}
+@media (max-width: 800px) {
+  .left-sidebar {
+    max-width: 30%;
+  }
+}
+@media (max-width: 500px) {
+  .left-sidebar {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    order: 0;
+  }
+  .left-sidebar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .left-sidebar ul a {
+    padding: 10%;
+  }
+  .left-sidebar .sofia {
+    margin: 0;
+  }
+  .left-sidebar .sofia h1 {
+    display: none;
+  }
+  .left-sidebar .sofia a img {
+    width: 75px;
+  }
+}
+.left-sidebar ul li {
+  font-size: 1.7em;
+  padding: 0.5em;
+}
+.main {
+  width: calc(100vw - 220px - 100px);
+  border-left: 1px solid #dedede;
+  border-right: 1px solid #dedede;
+  padding: 30px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.main h2 {
+  font-size: 2em;
+  padding-top: 30px;
+  margin: 0 0 1em 0;
+}
+.main h3 {
+  font-size: 1.8em;
+  margin: 20px 0 20px;
+}
+.main p {
+  font-size: 1.3em;
+}
+.main section:not(:first-child) {
+  border-top: solid 2px #efefef;
+}
+@media (max-width: 800px) {
+  .main {
+    width: 70%;
+    height: calc(100vh - 88px);
+  }
+}
+@media (max-width: 500px) {
+  .main {
+    width: 100%;
+    order: 1;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+  }
+}
+.right-sidebar {
+  margin: 0 20px 0 20px;
+  width: 60px;
+  order: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.right-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+}
+.right-sidebar nav a {
+  padding: 12px;
+}
+.right-sidebar nav a i {
+  color: #555555;
+}
+.right-sidebar nav a i:hover {
+  color: #1E90FF;
+}
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.right-sidebar .chevron-container {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+.right-sidebar .chevron-container .chevron {
+  display: block;
+  margin: auto;
+  height: 20px;
+  width: 20px;
+  border-bottom: 2px solid #555555;
+  border-left: 2px solid #555555;
+  transform: rotate(135deg);
+}
+.right-sidebar .chevron-container .chevron:hover {
+  border-color: #1E90FF;
+}
+.right-sidebar .chevron-container:hover {
+  animation-iteration-count: 1;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  .right-sidebar {
+    border-top: 1px solid #dedede;
+    background-color: white;
+    margin: 0;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    order: 2;
+  }
+  .right-sidebar nav {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (max-width: 500px) {
+  .right-sidebar {
+    background-color: white;
+    margin: 0;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    order: 2;
+  }
+  .right-sidebar nav {
+    display: flex;
+    flex-direction: row;
+  }
+}
